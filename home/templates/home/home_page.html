@@ -44,72 +44,19 @@
                 </div>
             </div>
             <div class="row mt-5 text-center">
-                <div class="col-md-4 wow fadeIn">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="icon-box">
-                                <em class="ion-ios-game-controller-b-outline icon-md"></em>
+                {% for service in self.our_services.all %}
+                    <div class="col-md-4 wow fadeIn">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="icon-box">
+                                    {% image service.icon fill-80x80 %}
+                                </div>
+                                <h6>{{ service.service }}</h6>
+                                <p> {{ service.description }}</p>
                             </div>
-                            <h6>Important Decision Making</h6>
-                            <p> {{ page.description }}</p>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4 wow fadeIn">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="icon-box">
-                                <em class="ion-android-wifi icon-md"></em>
-                            </div>
-                            <h6>Life coaching</h6>
-                            <p> {{ page.description }}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 wow fadeIn">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="icon-box">
-                                <em class="ion-ios-settings icon-md"></em>
-                            </div>
-                            <h6>Entreprenuership Advice</h6>
-                            <p> {{ page.description }}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 wow fadeIn">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="icon-box">
-                                <em class="ion-ios-cloud-upload-outline icon-md"></em>
-                            </div>
-                            <h6>Financial Literacy</h6>
-                            <p> {{ page.description }}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 wow fadeIn">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="icon-box">
-                                <em class="ion-ios-locked-outline icon-md"></em>
-                            </div>
-                            <h6>Career Mentorship</h6>
-                            <p> {{ page.description }}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 wow fadeIn">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="icon-box">
-                                <em class="ion-android-color-palette icon-md"></em>
-                            </div>
-                            <h6>Work & life balance</h6>
-                            <p> {{ page.description }}</p>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </section>
@@ -119,7 +66,8 @@
         <div class="container-fluid">
             <div class="row d-md-flex mt-5">
                 <div class="col-sm-6 p-0 wow fadeInLeft">
-                    <img class="img-fluid" src="{% static 'img/product2.jpg' %}" alt="Gallery">
+                    {% image page.pic max-820x600 as img %}
+                    <img src="{{ img.url }}" alt="img"/>
                 </div>
                 <div class="col-sm-6 pl-5 pr-5 pt-5 pb-4 wow fadeInRight">
                     <h3><a href="#">Get to know us</a></h3>
@@ -175,15 +123,14 @@
             <div class="row d-md-flex mt-5 text-center">
                 {% for block in page.team %}
                     <div class="team col-sm-3 mt-2 wow fadeInLeft">
-                        {% if block.block_type == 'photo' %}
-                            <img src="{% image block.value fill-80x80 %}" alt="Male" class="img-team img-fluid rounded-circle"/>
-                        {% elif block.block_type == 'name' %}
-                            <h5>{{ block.value }}</h5>
-                        {% elif block.block_type == 'details' %}
-                            <p>{{ page.value }}</p>
-                        <!-- {% else %}
-                            {% include_block block %} -->
-                        {% endif %}
+                        {% include_block block %}
+                        <!-- {% if block.block_type %}
+                            <img src="{% image block.value.photo fill-80x80 %}" alt="Male" class="img-team img-fluid rounded-circle"/>
+                            <h5>{{ block.value.name }}</h5>
+                            <p>{{ block.value.details }}</p>
+                        {% else %}
+                            {% include_block block %}
+                        {% endif %} -->
                     </div>
                 {% endfor %}
                 
