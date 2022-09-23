@@ -23,12 +23,24 @@ class HomePagePrices(Orderable):
         FieldPanel('order_link'),
     ]
 
+    class HomePageServices(Orderable):
+        page = ParentalKey('home.HomePage', on_delete=models.CASCADE, related_name='our_services')
+        icon = models.ForeignKey('wagtailimages.Image', null=True, blank=True, on_delete=models.SET_NULL, related_name='+')
+        service = models.CharField(max_length=200, blank=True)
+        description = RichTextField(default='Hello world')
+
+        panels = [
+            FieldPanel('icon'),
+            FieldPanel('service'),
+            FieldPanel('description'),
+        ]
+
 class HomePage(Page):
     b_image = models.ForeignKey('wagtailimages.Image', null=True, blank=True, on_delete=models.SET_NULL, related_name='+')
     head_msg = models.CharField(max_length=200, default='Vincent')
     head_body = RichTextField(default='Hello world')
     head_btn_link = models.CharField(max_length=100, default='Free Consultation')
-    description = RichTextField(default='Hello world')
+    pic = models.ForeignKey('wagtailimages.Image', null=True, blank=True, on_delete=models.SET_NULL, related_name='+')
     info = RichTextField(default='Hello world')
     link = models.CharField(max_length=100, default='Hello world')
     team = StreamField([
@@ -51,8 +63,9 @@ class HomePage(Page):
             FieldPanel('head_body'),
             FieldPanel('head_btn_link'),
         ], heading='Home header section' ),
-        FieldPanel('description'),
+        InlinePanel('our_services', label='Services', min_num=1, max_num=6),
         MultiFieldPanel([
+            FieldPanel('pic'),
             FieldPanel('info'),
             FieldPanel('link')
         ], heading='Brief information about us'),
