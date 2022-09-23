@@ -1,0 +1,283 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block extra_css %}
+
+{% endblock extra_css %}
+
+{% block content %}
+
+    <!--main section-->
+    <section class="bg-texture hero" id="main">
+        <div class="container">
+            <div class="row d-md-flex brand">
+                <div class="col-md-6 hidden-sm-down wow fadeIn">
+                    <img class="img-fluid mx-auto d-block" src="{% static 'img/man.jpg' %}"/>
+                </div>
+                <div class="col-md-6 col-sm-12 text-white wow fadeIn">
+                    <h2 class="pt-4"> {{ page.head_msg }} </h2>
+                    <p class="mt-5">
+                        {{ page.head_body|richtext }}
+                    </p>
+                    <p class="mt-5">
+                        <a href="#" class="btn btn-primary mr-2 mb-2 page-scroll">{{ page.head_btn_link }}</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--home-content-->
+    <section class="bg-light" id="features">
+        <div class="container">
+            <div class="row mb-3">
+                <div class="col-md-6 col-sm-8 mx-auto text-center wow fadeIn">
+                    <h2 class="text-primary">Our Specialities</h2>
+                    <p class="lead mt-4">
+                        Find out more on what we can do for you.
+                    </p>
+                </div>
+            </div>
+            <div class="row mt-5 text-center">
+                <div class="col-md-4 wow fadeIn">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="icon-box">
+                                <em class="ion-ios-game-controller-b-outline icon-md"></em>
+                            </div>
+                            <h6>Important Decision Making</h6>
+                            <p> {{ page.description }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 wow fadeIn">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="icon-box">
+                                <em class="ion-android-wifi icon-md"></em>
+                            </div>
+                            <h6>Life coaching</h6>
+                            <p> {{ page.description }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 wow fadeIn">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="icon-box">
+                                <em class="ion-ios-settings icon-md"></em>
+                            </div>
+                            <h6>Entreprenuership Advice</h6>
+                            <p> {{ page.description }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 wow fadeIn">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="icon-box">
+                                <em class="ion-ios-cloud-upload-outline icon-md"></em>
+                            </div>
+                            <h6>Financial Literacy</h6>
+                            <p> {{ page.description }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 wow fadeIn">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="icon-box">
+                                <em class="ion-ios-locked-outline icon-md"></em>
+                            </div>
+                            <h6>Career Mentorship</h6>
+                            <p> {{ page.description }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 wow fadeIn">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="icon-box">
+                                <em class="ion-android-color-palette icon-md"></em>
+                            </div>
+                            <h6>Work & life balance</h6>
+                            <p> {{ page.description }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- get to know us section -->
+    <section class="bg-white p-0">
+        <div class="container-fluid">
+            <div class="row d-md-flex mt-5">
+                <div class="col-sm-6 p-0 wow fadeInLeft">
+                    <img class="img-fluid" src="{% static 'img/product2.jpg' %}" alt="Gallery">
+                </div>
+                <div class="col-sm-6 pl-5 pr-5 pt-5 pb-4 wow fadeInRight">
+                    <h3><a href="#">Get to know us</a></h3>
+                    <p class="lead pt-4">{{ page.info|richtext }}</p>
+                    <a href="#purchase" class="btn btn-primary mr-2 page-scroll">{{ page.link }}</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--pricing-->
+    <section class="bg-light" id="pricing">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-xs-12 text-center">
+                    <h2 class="text-primary">Pricing</h2>
+                    <p class="lead pt-3">
+                        Our no-nonsense pricing.
+                    </p>
+                </div>
+            </div>
+            <div class="row d-md-flex mt-4 text-center">
+                {% for price in self.our_prices.all %}    
+                    <div class="col-sm-4 mt-4 wow fadeIn">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title pt-4 text-orange">{{ price.price_type }}</h5> 
+                                <h3 class="card-title text-primary pt-4">{{ price.price }}</h3>
+                                <p class="card-text text-muted pb-3 border-bottom">{{ price.basis }}</p>
+                                <ul class="list-unstyled pricing-list">
+                                    <li>{{ price.breakdown }}</li>
+                                </ul>
+                                <a href="#" class="btn btn-primary btn-radius">{{ price.order_link }}</a> -->
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+        </div>
+    </section>
+
+    <!--team-->
+    <section class="bg-white" id="team">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-8 mx-auto text-center">
+                    <h2 class="text-primary">Our Team</h2>
+                    <p class="lead pt-3">
+                        Meet our awesome team.
+                    </p>
+                </div>
+            </div>
+            <div class="row d-md-flex mt-5 text-center">
+                {% for block in page.team %}
+                    <div class="team col-sm-3 mt-2 wow fadeInLeft">
+                        {% if block.block_type == 'photo' %}
+                            <img src="{% image block.value fill-80x80 %}" alt="Male" class="img-team img-fluid rounded-circle"/>
+                        {% elif block.block_type == 'name' %}
+                            <h5>{{ block.value }}</h5>
+                        {% elif block.block_type == 'details' %}
+                            <p>{{ page.value }}</p>
+                        <!-- {% else %}
+                            {% include_block block %} -->
+                        {% endif %}
+                    </div>
+                {% endfor %}
+                
+            </div>
+        </div>
+    </section>
+
+    <!--blog-->
+    <!-- <section class="bg-light" id="blog">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-xs-12 text-center">
+                    <h2 class="text-primary">From Our Blog</h2>
+                    <p class="lead pt-3">
+                        The latest news from Comply blog.
+                    </p>
+                </div>
+            </div>
+            <div class="row d-md-flex mt-5">
+                <div class="col-sm-4 mt-2 wow fadeIn">
+                    <div class="card">
+                        <img class="card-img-top" src="{% static 'img/blog-1.jpg' %}" alt="Image">
+                        <div class="card-body">
+                            <p class="card-text text-muted small-xl">
+                                <em class="ion-ios-calendar-outline"></em> 22h ago &nbsp;&nbsp;
+                                <em class="ion-ios-person-outline"></em> Kahtrine Kaif &nbsp;&nbsp;
+                                <em class="ion-ios-time-outline"></em> 5min read
+                            </p>
+                            <h5 class="card-title"><a href="#">Comply version 5.0 is available now.</a></h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Lorem ipsum dolor sit amet.</p>
+                        </div>
+                        <div class="card-body text-right">
+                            <a href="#" class="card-link"><strong>Read more</strong></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 mt-2 wow fadeIn">
+                    <div class="card">
+                        <img class="card-img-top" src="{% static 'img/blog-2.jpg' %}" alt="Image">
+                        <div class="card-body">
+                            <p class="card-text text-muted small-xl">
+                                <em class="ion-ios-calendar-outline"></em> 1week ago &nbsp;&nbsp;
+                                <em class="ion-ios-person-outline"></em> John Deo &nbsp;&nbsp;
+                                <em class="ion-ios-time-outline"></em> 2min read
+                            </p>
+                            <h5 class="card-title"><a href="#">We celebrated our success with cake.</a></h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Lorem ipsum dolor sit amet.</p>
+                        </div>
+                        <div class="card-body text-right">
+                            <a href="#" class="card-link"><strong>Read more</strong></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 mt-2 wow fadeIn">
+                    <div class="card">
+                        <img class="card-img-top" src="{% static 'img/blog-3.jpg' %}" alt="Image">
+                        <div class="card-body">
+                            <p class="card-text text-muted small-xl">
+                                <em class="ion-ios-calendar-outline"></em> 1mon ago &nbsp;&nbsp;
+                                <em class="ion-ios-person-outline"></em> Kathrine Kaif &nbsp;&nbsp;
+                                <em class="ion-ios-time-outline"></em> 10min read
+                            </p>
+                            <h5 class="card-title"><a href="#">Connecting virtual reality with the people.</a></h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Lorem ipsum dolor sit amet.</p>
+                        </div>
+                        <div class="card-body text-right">
+                            <a href="#" class="card-link"><strong>Read more</strong></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!--contact-->
+    <section class="bg-texture-collage p-0" id="contact">
+        <div class="container">
+            <div class="row d-md-flex text-white text-center wow fadeIn">
+                <div class="col-sm-4 p-5">
+                    <p><em class="ion-ios-telephone-outline icon-md"></em></p>
+                    <p class="lead">{{ page.contact_phone }}</p>
+                </div>
+                <div class="col-sm-4 p-5">
+                    <p><em class="ion-ios-email-outline icon-md"></em></p>
+                    <p class="lead">{{ page.contact_email }}</p>
+                </div>
+                <div class="col-sm-4 p-5">
+                    <p><em class="ion-ios-location-outline icon-md"></em></p>
+                    <p class="lead">{{ page.contact_location }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+{% endblock content %}
