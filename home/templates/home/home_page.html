@@ -52,7 +52,7 @@
                                     {% image service.icon fill-80x80 %}
                                 </div>
                                 <h6>{{ service.service }}</h6>
-                                <p> {{ service.description }}</p>
+                                <p> {{ service.description | richtext}}</p>
                             </div>
                         </div>
                     </div>
@@ -98,9 +98,9 @@
                                 <h3 class="card-title text-primary pt-4">{{ price.price }}</h3>
                                 <p class="card-text text-muted pb-3 border-bottom">{{ price.basis }}</p>
                                 <ul class="list-unstyled pricing-list">
-                                    <li>{{ price.breakdown }}</li>
+                                    <li>{{ price.breakdown|richtext }}</li>
                                 </ul>
-                                <a href="#" class="btn btn-primary btn-radius">{{ price.order_link }}</a> -->
+                                <a href="#" class="btn btn-primary btn-radius">{{ price.order_link }}</a>
                             </div>
                         </div>
                     </div>
@@ -122,16 +122,13 @@
             </div>
             <div class="row d-md-flex mt-5 text-center">
                 {% for block in page.team %}
-                    <div class="team col-sm-3 mt-2 wow fadeInLeft">
-                        {% include_block block %}
-                        <!-- {% if block.block_type %}
-                            <img src="{% image block.value.photo fill-80x80 %}" alt="Male" class="img-team img-fluid rounded-circle"/>
+                    {% if block.block_type == 'teammate' %}
+                        <div class="team col-sm-3 mt-2 wow fadeInLeft">
+                            {% image block.value.photo fill-80x80 class="img-team img-fluid rounded-circle" %}
                             <h5>{{ block.value.name }}</h5>
                             <p>{{ block.value.details }}</p>
-                        {% else %}
-                            {% include_block block %}
-                        {% endif %} -->
-                    </div>
+                        </div>
+                    {% endif %}
                 {% endfor %}
                 
             </div>

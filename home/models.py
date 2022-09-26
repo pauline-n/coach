@@ -44,9 +44,12 @@ class HomePage(Page):
     info = RichTextField(default='Hello world')
     link = models.CharField(max_length=100, default='Hello world')
     team = StreamField([
-        ('photo', ImageChooserBlock()),
-        ('name', blocks.CharBlock(form_classname="title")),
-        ('details', blocks.CharBlock(form_classname="title")),
+        ('teammate', blocks.StructBlock([
+            ('photo', ImageChooserBlock()),
+            ('name', blocks.CharBlock(form_classname="title")),
+            ('details', blocks.CharBlock(form_classname="title")),
+        ]))
+       
     ], use_json_field=True, blank=True)
     blog_feature = models.ForeignKey(Page,  null=True,
         blank=True,
