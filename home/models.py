@@ -23,17 +23,17 @@ class HomePagePrices(Orderable):
         FieldPanel('order_link'),
     ]
 
-    class HomePageServices(Orderable):
-        page = ParentalKey('home.HomePage', on_delete=models.CASCADE, related_name='our_services')
-        icon = models.ForeignKey('wagtailimages.Image', null=True, blank=True, on_delete=models.SET_NULL, related_name='+')
-        service = models.CharField(max_length=200, blank=True)
-        description = RichTextField(default='Hello world')
+class HomePageServices(Orderable):
+    page = ParentalKey('home.HomePage', on_delete=models.CASCADE, related_name='our_services')
+    icon = models.ForeignKey('wagtailimages.Image', null=True, blank=True, on_delete=models.SET_NULL, related_name='+')
+    service = models.CharField(max_length=200, blank=True)
+    description = RichTextField(default='Hello world')
 
-        panels = [
-            FieldPanel('icon'),
-            FieldPanel('service'),
-            FieldPanel('description'),
-        ]
+    panels = [
+        FieldPanel('icon'),
+        FieldPanel('service'),
+        FieldPanel('description'),
+    ]
 
 class HomePage(Page):
     b_image = models.ForeignKey('wagtailimages.Image', null=True, blank=True, on_delete=models.SET_NULL, related_name='+')
@@ -82,4 +82,6 @@ class HomePage(Page):
         ])
     ]
 
+    class Meta:
+        verbose_name = 'Home Page'
 
