@@ -1,39 +1,11 @@
 from django.db import models
 
 from modelcluster.fields import ParentalKey
-from wagtail.admin.panels import FieldPanel, MultiFieldPanel, FieldRowPanel, PageChooserPanel, InlinePanel
+from wagtail.admin.panels import FieldPanel, MultiFieldPanel, PageChooserPanel, InlinePanel
 from wagtail.fields import RichTextField, StreamField
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail import blocks
 from wagtail.models import Page, Orderable
-
-class HomePagePrices(Orderable):
-    page = ParentalKey('home.HomePage', on_delete=models.CASCADE, related_name='our_prices')
-    price_type = models.CharField(max_length=200)
-    price = models.CharField(max_length=200)
-    basis = models.CharField(max_length=200)
-    breakdown = RichTextField()
-    order_link = models.CharField(max_length=200)
-
-    panels = [
-        FieldPanel('price_type'),
-        FieldPanel('price'),
-        FieldPanel('basis'),
-        FieldPanel('breakdown'),
-        FieldPanel('order_link'),
-    ]
-
-class HomePageServices(Orderable):
-    page = ParentalKey('home.HomePage', on_delete=models.CASCADE, related_name='our_services')
-    icon = models.ForeignKey('wagtailimages.Image', null=True, blank=True, on_delete=models.SET_NULL, related_name='+')
-    service = models.CharField(max_length=200, blank=True)
-    description = RichTextField(default='Hello world')
-
-    panels = [
-        FieldPanel('icon'),
-        FieldPanel('service'),
-        FieldPanel('description'),
-    ]
 
 class HomePage(Page):
     b_image = models.ForeignKey('wagtailimages.Image', null=True, blank=True, on_delete=models.SET_NULL, related_name='+')
@@ -85,3 +57,30 @@ class HomePage(Page):
     class Meta:
         verbose_name = 'Home Page'
 
+class HomePagePrices(Orderable):
+    page = ParentalKey('home.HomePage', on_delete=models.CASCADE, related_name='our_prices')
+    price_type = models.CharField(max_length=200)
+    price = models.CharField(max_length=200)
+    basis = models.CharField(max_length=200)
+    breakdown = RichTextField()
+    order_link = models.CharField(max_length=200)
+
+    panels = [
+        FieldPanel('price_type'),
+        FieldPanel('price'),
+        FieldPanel('basis'),
+        FieldPanel('breakdown'),
+        FieldPanel('order_link'),
+    ]
+
+class HomePageServices(Orderable):
+    page = ParentalKey('home.HomePage', on_delete=models.CASCADE, related_name='our_services')
+    icon = models.ForeignKey('wagtailimages.Image', null=True, blank=True, on_delete=models.SET_NULL, related_name='+')
+    service = models.CharField(max_length=200, blank=True)
+    description = RichTextField(default='Hello world')
+
+    panels = [
+        FieldPanel('icon'),
+        FieldPanel('service'),
+        FieldPanel('description'),
+    ]
