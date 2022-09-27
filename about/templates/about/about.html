@@ -6,20 +6,17 @@
 
 {% block body_class %}template-about{% endblock %}
 
-{% block extra_css %}
-
-{% endblock extra_css %}
 
 {% block content %}
     <section class="bg-white p-0">
         <div class="container-fluid">
             <h2 class="text-primary">{{ page.subtitle }}</h2>
                 <div class="row d-md-flex mt-5">
-                    <div class="col-sm-6 p-0 wow fadeInLeft">
+                    <div class="col-sm-6 pl-5 pr-5 pt-5 pb-4 wow fadeInLeft">
                         <p class="lead pt-4">{{ page.story|richtext }}</p>
                     </div>
-                    <div class="col-sm-6 pl-5 pr-5 pt-5 pb-4 wow fadeInRight">
-                        {% image page.picture max-820x800 as img %}
+                    <div class="col-sm-6 p-0 wow fadeInRight">
+                        {% image page.picture max-720x600 as img %}
                         <img src="{{ img.url }}" alt="img"/>
                     </div>
                 </div>
@@ -35,10 +32,10 @@
         </div>
         <div class="row d-md-flex mt-5">
             {% for block in page.testimonials %}
-                {% if block.block_type == 'testifiers' %}
+                {% if block.block_type == 'testifier' %}
                     <div class="col-sm-4 mt-2 wow fadeIn">
                         <div class="card">
-                            {% image block.value.profilepic width-400 class="foto" %}
+                            {% image block.value.profilepic width-40 class="foto" %}
                             <div class="card-body">
                                 <p class="card-text text-muted small-xl">
                                     {{ block.value.testimony }}
