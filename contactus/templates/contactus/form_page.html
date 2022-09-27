@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+
+{% block body_class %}template-services{% endblock %}
+
+
+{% block content %}
+    <section class="bg-light" id="">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-xs-12 text-center">
+                    <h2 class="text-primary">Contact </h2>
+                </div>
+            </div>
+            <div class="row d-md-flex mt-5">
+                <div class="col-sm-6 pl-5 pr-5 pt-5 pb-4 wow fadeInLeft">
+                    <h1>{{ page.title }}</h1>
+                    {{ page.intro|richtext }}
+                    <form action="{% pageurl page %}" method="POST">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <input type="submit">
+                    </form>
+        
+                </div>
+                <div class="col-sm-6 p-0 wow fadeInRight">
+                    <img src="{% static 'img/contact-img.jpg' %}" alt="img" width=800 height=600/>
+                </div>
+            </div>
+           
+        </div>
+    </section>
+{% endblock content %}
