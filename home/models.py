@@ -23,10 +23,10 @@ class HomePage(Page):
         ]))
        
     ], use_json_field=True, blank=True)
-    blog_feature = models.ForeignKey(Page,  null=True,
-        blank=True,
-        on_delete=models.SET_NULL,
-        related_name='+',)
+    # blog_feature = models.ForeignKey(Page,  null=True,
+    #     blank=True,
+    #     on_delete=models.SET_NULL,
+    #     related_name='+',)
     contact_phone = models.CharField(max_length=200, default ='256774559687')
     contact_email = models.EmailField(default='ojaravincent5@gmail.com')
     contact_location = models.CharField(max_length=255, default='Kampala, Uganda')
@@ -46,7 +46,7 @@ class HomePage(Page):
         ], heading='Brief information about us'),
         InlinePanel('our_prices', label='Pricing', max_num=3, min_num=1),
         FieldPanel('team'),
-        PageChooserPanel('blog_feature'),
+        # PageChooserPanel('blog_feature'),
         MultiFieldPanel([
             FieldPanel('contact_phone'),
             FieldPanel('contact_email'),
@@ -56,6 +56,7 @@ class HomePage(Page):
 
     class Meta:
         verbose_name = 'Home Page'
+
 
 class HomePagePrices(Orderable):
     page = ParentalKey('home.HomePage', on_delete=models.CASCADE, related_name='our_prices')
