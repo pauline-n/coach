@@ -1,0 +1,7 @@
+For Dev
+create a virtualenv 'python3 -m venv env'
+activate it '. env/bin/activate'
+install requirements 'pip i -r requirements.txt'
+run migrations 'python manage.py migrate'
+Run the server 'python manage.py runserver'
+create a username and password if u need the adminside 'python manage.py createsuperuser'

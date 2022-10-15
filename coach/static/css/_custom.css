@@ -194,6 +194,10 @@ color: #fff !important;
 .btn-radius {
 border-radius: 50px;
 }
+.links{
+  text-decoration: none !important;
+  color: #DEE5E5;
+}
 
 /* borders utilities */
 .border-none {

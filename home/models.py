@@ -11,10 +11,10 @@ class HomePage(Page):
     b_image = models.ForeignKey('wagtailimages.Image', null=True, blank=True, on_delete=models.SET_NULL, related_name='+')
     head_msg = models.CharField(max_length=200, default='Vincent')
     head_body = RichTextField(default='Hello world')
-    head_btn_link = models.CharField(max_length=100, default='Free Consultation')
+    head_btn_link = RichTextField(default='Free Consultation')
     pic = models.ForeignKey('wagtailimages.Image', null=True, blank=True, on_delete=models.SET_NULL, related_name='+')
     info = RichTextField(default='Hello world')
-    link = models.CharField(max_length=100, default='Hello world')
+    link = RichTextField(default='Hello world')
     team = StreamField([
         ('teammate', blocks.StructBlock([
             ('photo', ImageChooserBlock()),
@@ -23,10 +23,7 @@ class HomePage(Page):
         ]))
        
     ], use_json_field=True, blank=True)
-    # blog_feature = models.ForeignKey(Page,  null=True,
-    #     blank=True,
-    #     on_delete=models.SET_NULL,
-    #     related_name='+',)
+
     contact_phone = models.CharField(max_length=200, default ='256774559687')
     contact_email = models.EmailField(default='ojaravincent5@gmail.com')
     contact_location = models.CharField(max_length=255, default='Kampala, Uganda')
