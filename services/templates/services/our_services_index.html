@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% load wagtailcore_tags wagtailimages_tags%}
+
+{% block body_class %}template-ourservicesindex{% endblock %}
+
+{% block content %}
+    <section class="bg-light" id="blog">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-xs-12 text-center">
+                    <h2 class="text-primary">Our Services </h2>
+                </div>
+            </div>
+                {% for serv in page.get_children %}
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                {{ serv.specific.service_name }}
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                {% image serv.specific.cover_image width-400 %}
+                                {{ serv.specific.content|richtext }}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>    
+
+{% endblock %}
