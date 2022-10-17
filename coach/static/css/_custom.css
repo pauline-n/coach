@@ -110,7 +110,7 @@ color: #fff;
 background: transparent -webkit-radial-gradient(circle farthest-side at right bottom, #ec407a 5%, #e91e63 25%, #d81b60 80%, #c2185b 98%) repeat scroll 0% 0%;
 background: transparent -o-radial-gradient(circle farthest-side at right bottom, #ec407a 5%, #e91e63 25%, #d81b60 80%, #c2185b 98%) repeat scroll 0% 0%;
 background: transparent -moz-radial-gradient(circle farthest-side at right bottom, #ec407a 5%, #e91e63 25%, #d81b60 80%, #c2185b 98%) repeat scroll 0% 0%;
-background: transparent radial-gradient(circle farthest-side at right bottom, #2475ef 5%, #e91e63 25%, #2475ef 80%, #2475ef 98%) repeat scroll 0% 0%;
+background: transparent radial-gradient(circle farthest-side at right bottom, #124b2e 5%, #124b2e 25%, #124b2e 80%, #124b2e 98%) repeat scroll 0% 0%;
 }
 .bg-texture-collage {
 background: -webkit-linear-gradient(-45deg, #ffb300 33%, transparent 0%), linear-gradient(-45deg, #d81b60 67%, transparent 33%), linear-gradient(-45deg, #ffb300 100%, transparent 67%);
@@ -141,7 +141,7 @@ color: #37474F;
 color: #999 !important;
 }
 .text-white {
-color: #fff;
+color: #81c5c4;
 }
 .text-primary {
 color: #d81b60 !important;
@@ -185,7 +185,7 @@ border-color: #fff;
 color: #ff4081;
 }
 .btn-primary {
-background-color: #ff4081 !important;
+background-color: #e0612b !important;
 border-color: #ff4081 !important;
 }
 .btn-primary:hover, .btn-primary:focus {
