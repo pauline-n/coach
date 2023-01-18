@@ -10,7 +10,7 @@ class BlogIndexPage(Page):
     content_panels = Page.content_panels + [
         FieldPanel('intro')
     ]
-
+    parent_page_types=['home.HomePage']
 
 class BlogPage(Page):
     heading = models.CharField(max_length=255)
@@ -25,3 +25,5 @@ class BlogPage(Page):
         FieldPanel('image'),
         FieldPanel('body')
     ]
+
+    parent_page_types=['home.HomePage']

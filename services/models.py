@@ -25,3 +25,5 @@ class OurServices(Page):
     class Meta:
         verbose_name = 'Our services'
 
+    parent_page_types=['home.HomePage']
+

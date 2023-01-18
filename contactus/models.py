@@ -32,6 +32,8 @@ class FormPage(AbstractEmailForm):
         ], "Email"),
     ]
 
+    parent_page_types=['home.HomePage']
+
 # class ContactUsPage(Page):
 #     name = models.CharField(max_length=255, blank=True)
 #     email = models.EmailField()
