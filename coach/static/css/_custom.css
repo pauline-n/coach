@@ -53,6 +53,11 @@ b, strong {
     margin-top: 0px;
 }
 }
+
+.v-image{
+  width: 500px;
+  height: 200px
+}
 .store-img {
 width: 170px;
 }
@@ -110,7 +115,7 @@ color: #fff;
 background: transparent -webkit-radial-gradient(circle farthest-side at right bottom, #ec407a 5%, #e91e63 25%, #d81b60 80%, #c2185b 98%) repeat scroll 0% 0%;
 background: transparent -o-radial-gradient(circle farthest-side at right bottom, #ec407a 5%, #e91e63 25%, #d81b60 80%, #c2185b 98%) repeat scroll 0% 0%;
 background: transparent -moz-radial-gradient(circle farthest-side at right bottom, #ec407a 5%, #e91e63 25%, #d81b60 80%, #c2185b 98%) repeat scroll 0% 0%;
-background: transparent radial-gradient(circle farthest-side at right bottom, #2475ef 5%, #e91e63 25%, #2475ef 80%, #2475ef 98%) repeat scroll 0% 0%;
+background: transparent radial-gradient(circle farthest-side at right bottom, #145360 5%, #145360 25%, #145360 80%, #145360 98%) repeat scroll 0% 0%;
 }
 .bg-texture-collage {
 background: -webkit-linear-gradient(-45deg, #ffb300 33%, transparent 0%), linear-gradient(-45deg, #d81b60 67%, transparent 33%), linear-gradient(-45deg, #ffb300 100%, transparent 67%);
@@ -185,8 +190,8 @@ border-color: #fff;
 color: #ff4081;
 }
 .btn-primary {
-background-color: #ff4081 !important;
-border-color: #ff4081 !important;
+background-color: #2696d2 !important;
+border-color: #2696d2 !important;
 }
 .btn-primary:hover, .btn-primary:focus {
 color: #fff !important;
@@ -247,7 +252,7 @@ margin-bottom: 30px;
 }
 .card .card-body .icon-box {
 padding: 20px 0;
-color: #d81b60;
+color: #832c34;
 }
 .card .card-body h6 {
 padding-bottom: 15px;
