@@ -16,18 +16,18 @@
     <section class="bg-texture hero" id="main">
         <div class="container">
             <div class="row d-md-flex brand">
-                <div class="col-md-6 hidden-sm-down wow fadeIn">
+                <!-- <div class="col-md-6 hidden-sm-down wow fadeIn">
                     <img class="img-fluid mx-auto d-block v-image" src="{% static 'img/v.jpeg' %}"/>
-                    <!-- {{ page.b_image }} -->
-                </div>
-                <div class="col-md-6 col-sm-12 text-white wow fadeIn">
-                    <h2 class="pt-4"> {{ page.head_msg }} </h2>
-                    <p class="mt-5">
+                    {{ page.b_image }} 
+                </div> -->
+                <div class="heading-title">
+                    <h1 class="pt-4 hero-heading"> {{ page.head_msg }} </h1>
+                    <h3 class="mt-5 hero-message">
                         {{ page.head_body|richtext }}
-                    </p>
-                    <p class="mt-5">
+                    </h3>
+                    <h4 class="mt-5">
                         <a href="#" class="btn btn-primary mr-2 mb-2 page-scroll">{{ page.head_btn_link|richtext }}</a>
-                    </p>
+                    </h4>
                 </div>
             </div>
         </div>
