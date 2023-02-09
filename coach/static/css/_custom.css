@@ -31,7 +31,8 @@ b, strong {
 }
 
 .navbar-inverse .navbar-nav .nav-link, .navbar .navbar-brand, .navbar-toggler span {
-  color: rgba(255, 255, 255, 0.8);
+  /* color: rgba(255, 255, 255, 0.8); */
+  color: #145360;
 }
 .navbar .nav-item .active, .navbar .nav-link:hover, .navbar .nav-link:focus, .navbar .navbar-brand:hover {
   color: #fff !important;
@@ -143,7 +144,7 @@ background-color: #171717;
   margin: 0;
   position:relative;
 }
-.hero-heading {
+.hero-heading-title {
 color: #145360;
 font-size: 94px;
 font-weight: bolder;
