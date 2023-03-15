@@ -10,7 +10,6 @@ from wagtail.models import Page, Orderable
 class HomePage(Page):
     b_image = models.ForeignKey('wagtailimages.Image', null=True, blank=True, on_delete=models.SET_NULL, related_name='+')
     head_msg = models.CharField(max_length=200, default='Vincent')
-    head_body = RichTextField(default='Hello world')
     head_btn_link = RichTextField(default='Free Consultation')
     pic = models.ForeignKey('wagtailimages.Image', null=True, blank=True, on_delete=models.SET_NULL, related_name='+')
     info = RichTextField(default='Hello world')
@@ -32,7 +31,6 @@ class HomePage(Page):
         MultiFieldPanel([
             FieldPanel('b_image'),
             FieldPanel('head_msg'),
-            FieldPanel('head_body'),
             FieldPanel('head_btn_link'),
         ], heading='Home header section' ),
         InlinePanel('our_services', label='Services', min_num=1, max_num=6),
