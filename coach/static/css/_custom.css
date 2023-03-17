@@ -26,7 +26,7 @@ b, strong {
 .navbar-nav .nav-item .nav-link {
   font-weight: 700;
   font-size: larger;
-  color: #00A1C9 !important;
+  color: #FFF !important;
 }
 .navbar-brand {
   font-weight: 700;
@@ -40,7 +40,8 @@ b, strong {
   /* 87D3B8 */
 }
 .navbar .nav-item .active, .navbar .nav-link:hover, .navbar .nav-link:focus, .navbar .navbar-brand:hover {
-  color: #fff !important;
+  color: #00A1C9 !important;
+  text-decoration: underline;
 }
 .sticky-navigation {
   top: 0px;
@@ -122,7 +123,9 @@ color: #fff;
 background: transparent -o-radial-gradient(circle farthest-side at right bottom, #ec407a 5%, #e91e63 25%, #d81b60 80%, #c2185b 98%) repeat scroll 0% 0%;
 background: transparent -moz-radial-gradient(circle farthest-side at right bottom, #ec407a 5%, #e91e63 25%, #d81b60 80%, #c2185b 98%) repeat scroll 0% 0%;
 background: transparent radial-gradient(circle farthest-side at right bottom, #145360 5%, #145360 25%, #145360 80%, #145360 98%) repeat scroll 0% 0%; */
-background-image: url("../img/coaching-session.jpg");
+/* background-image: url("../img/coaching-session.jpg"); */
+background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),url(../img/coaching-session.jpg);
+min-height: 100%;
 background-size: cover;
 }
 .bg-texture-collage {
@@ -148,11 +151,11 @@ background-color: #171717;
   padding: 0;
   margin: 0;
   position:relative;
-  background-color: rgba(0,0,0,0.5);
+  /* background-color: rgba(0,0,0,0.5); */
   justify-content: center;
   align-items: center;
   text-align: center;
-  border-radius: 5px;
+  /* border-radius: 5px; */
   padding-bottom: 67px;
   padding-top: 55px;
 }
@@ -222,8 +225,8 @@ border-color: #fff;
 color: #145360;
 }
 .btn-primary {
-background-color: #ade3dc !important;
-border-color: #ade3dc !important;
+background-color: #00A1C9 !important;
+border-color: #00A1C9 !important;
 }
 .btn-primary:hover, .btn-primary:focus {
 color: #fff !important;
